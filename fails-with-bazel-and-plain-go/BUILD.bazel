@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "fails-with-bazel-and-plain-go_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/psalaberria002/go-program-not-importable-package/fails-with-bazel-and-plain-go",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_jimmidyson_configmap_reload//:configmap-reload"],
+)
+
+go_binary(
+    name = "fails-with-bazel-and-plain-go",
+    embed = [":fails-with-bazel-and-plain-go_lib"],
+    visibility = ["//visibility:public"],
+)

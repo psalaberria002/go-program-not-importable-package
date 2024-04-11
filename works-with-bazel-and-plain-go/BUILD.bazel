@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "works-with-bazel-and-plain-go",
+    srcs = ["main.go"],
+    importpath = "github.com/psalaberria002/go-program-not-importable-package/works-with-bazel-and-plain-go",
+    visibility = ["//visibility:public"],
+)
